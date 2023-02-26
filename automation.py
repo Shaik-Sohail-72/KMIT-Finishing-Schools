@@ -2,23 +2,25 @@ import pyautogui
 import time
 
 code_to_type = """
-public List<String> decodeString(String s) {
-public static int minOperations(int n) {
-    int count = 0;
-    while (n != 0) {
-        int p = 1;
-        while (p * 2 <= n) {
-            p *= 2;
+class Solution {
+       public static int divide(int dividend, int divisor) {
+        if (Integer.MIN_VALUE == dividend && divisor == -1)
+            return Integer.MAX_VALUE;
+        int ans = 0;
+        int a = Math.abs(dividend);
+        int b = Math.abs(divisor);
+        while (a - b >= 0) {
+            int temp = b;
+            int count = 1;
+            while (a - (temp << 1) >= 0) {
+                temp <<= 1;
+                count <<= 1;
+            }
+            a -= temp;
+            ans += count;
         }
-        if (p > 0) {
-            n -= p;
-            count++;
-        } else {
-            n += p;
-            count++;
-        }
+        return (dividend > 0) == (divisor > 0) ? ans : -ans;
     }
-    return count;
 }
 """
 
