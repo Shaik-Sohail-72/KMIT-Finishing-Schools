@@ -3,23 +3,16 @@ import time
 
 code_to_type = """
 class Solution {
-       public static int divide(int dividend, int divisor) {
-        if (Integer.MIN_VALUE == dividend && divisor == -1)
-            return Integer.MAX_VALUE;
-        int ans = 0;
-        int a = Math.abs(dividend);
-        int b = Math.abs(divisor);
-        while (a - b >= 0) {
-            int temp = b;
-            int count = 1;
-            while (a - (temp << 1) >= 0) {
-                temp <<= 1;
-                count <<= 1;
-            }
-            a -= temp;
-            ans += count;
+    public int minOperations(int n) {
+        int x=n;
+        int cnt=0;
+        while(x!=0){
+            int floor=(int)Math.floor(Math.log(x)/Math.log(2));
+            int ceil=(int)Math.ceil(Math.log(x)/Math.log(2));
+            x=Math.min(Math.abs((1<<floor)-x),Math.abs((1<<ceil)-x));
+            cnt++;
         }
-        return (dividend > 0) == (divisor > 0) ? ans : -ans;
+        return cnt;
     }
 }
 """
