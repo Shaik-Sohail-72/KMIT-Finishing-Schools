@@ -16,7 +16,7 @@ Output: 17
 Explanation: The optimal subarray here is [2,4,5,6].
 */
 import java.util.*;
-class temp{
+class maxScore{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
@@ -24,24 +24,23 @@ class temp{
         for(int i=0;i<n;i++){
             arr[i]=sc.nextInt();
         }
-        int j=0;
-        int i=j;
-        List<List<Integer>> mainls=new ArrayList<>();
-        while(j<n){
-            i=j;
+        System.out.println(cal(n,arr));
+    }
+    public static int cal(int n,int arr[]){
+        int m=0;
+        for(int i=0;i<n;i++){
+            int s=0;
             List<Integer> ls=new ArrayList<>();
-            while(i<n){
-                if(!ls.contains(arr[i])){
-                    ls.add(arr[i]);
-                    i++;
-                }else{
-                    mainls.add(ls);
-                    //ls.clear();
-                    i=n;
+            for(int j=i;j<n;j++){
+                if(!ls.contains(arr[j])){
+                    ls.add(arr[j]);
+                    s+=arr[j];
+                }
+                if(ls.size()==j-i+1){
+                    m=Math.max(m,s);
                 }
             }
-            j++;
         }
-        System.out.println(mainls);
+        return m;
     }
 }
