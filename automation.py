@@ -2,17 +2,51 @@ import pyautogui
 import time
 
 code_to_type = """
-class Solution {
-    public int minOperations(int n) {
-        int x=n;
-        int cnt=0;
-        while(x!=0){
-            int floor=(int)Math.floor(Math.log(x)/Math.log(2));
-            int ceil=(int)Math.ceil(Math.log(x)/Math.log(2));
-            x=Math.min(Math.abs((1<<floor)-x),Math.abs((1<<ceil)-x));
-            cnt++;
+import java.util.*;
+class Test
+{
+    public static void main (String[] args) 
+    {
+        Scanner obj=new Scanner(System.in);
+        int n=obj.nextInt();
+        int m=obj.nextInt();
+        int[] arr1=new int[n];
+        int[] arr2=new int[m];
+        HashMap<String,Integer> hm=new HashMap<>();
+        for(int i=0;i<n;i++)
+        {
+            arr1[i]=obj.nextInt();
         }
-        return cnt;
+        for(int j=0;j<m;j++)
+        {
+            arr2[j]=obj.nextInt();
+        }
+        System.out.println(countmax(arr1,0,arr2,0,hm));
+    }
+    
+    public static int countmax(int[] arr1,int i,int[] arr2,int j,HashMap<String,Integer> hm)
+    {
+        int c=0;
+        String key=i+"value"+j;
+        if(i==arr1.length ||j==arr2.length)
+        {
+            return 0;
+        }
+        if(hm.containsKey(key))
+        {
+            return hm.get(key);
+        }
+        if(arr1[i]==arr2[j])
+        {
+            c=1+countmax(arr1,i+1,arr2,j+1,hm);
+        }
+        else
+        {
+            c+=Math.max((countmax(arr1,i,arr2,j+1,hm)),(countmax(arr1,i+1,arr2,j,hm)));
+           
+        }
+        hm.put(key,c);
+        return c;
     }
 }
 """
