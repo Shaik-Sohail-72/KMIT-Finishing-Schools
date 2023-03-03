@@ -2,53 +2,114 @@ import pyautogui
 import time
 
 code_to_type = """
+In a joint family, every person assigned with an ID, an integer value.
+and the entire family is arranged in the form of a tree.
+
+You will be given the family tree,
+your task is to find and print the person ID, who is only child to his/her parent.
+i.e, the person with no siblings. Print all such person ID's in ascending order.
+
+NOTE: 
+	- If only one person is there in the family, please consider him as a parent.
+	- In the given tree, please consider '-1' as null.
+
+Input Format:
+-------------
+Single line of space separated integers, person ID's in the family.
+
+Output Format:
+--------------
+Print the list of person IDs in ascending order.
+
+
+Sample Input-1:
+---------------
+2 3 4 -1 5
+
+Sample Output-1:
+----------------
+[5]
+
+Sample Input-2:
+---------------
+11 99 88 77 -1 -1 66 55 -1 -1 -1 -1 -1 -1 44
+
+Sample Output-2:
+----------------
+[44, 55, 66, 77]
+
+
+*/
+
 import java.util.*;
-class Test
-{
-    public static void main (String[] args) 
+
+class BinaryTreeNode{
+	public int data; 
+	public BinaryTreeNode left, right; 
+	public BinaryTreeNode(int data){
+		this.data = data; 
+		left = null; 
+		right = null; 
+	}
+}
+
+class Solution {
+    public ArrayList<Integer> getPersonIDs(BinaryTreeNode root) {
+		ArrayList<Integer> nodes = new ArrayList<>();
+		getPersonIDs(root, false, nodes); // root is not lonely
+		return nodes;
+	}
+	private void getPersonIDs(BinaryTreeNode root, boolean isLonely, ArrayList<Integer> nodes) {
+		// Write your logic here 
+		if(root==null){
+		return nodes;
+	}
+	
+}
+public class LonelyNodes{
+	static BinaryTreeNode root;
+	void insert(BinaryTreeNode temp, int key)
     {
-        Scanner obj=new Scanner(System.in);
-        int n=obj.nextInt();
-        int m=obj.nextInt();
-        int[] arr1=new int[n];
-        int[] arr2=new int[m];
-        HashMap<String,Integer> hm=new HashMap<>();
-        for(int i=0;i<n;i++)
-        {
-            arr1[i]=obj.nextInt();
-        }
-        for(int j=0;j<m;j++)
-        {
-            arr2[j]=obj.nextInt();
-        }
-        System.out.println(countmax(arr1,0,arr2,0,hm));
+		if(temp==null){
+		    root==new NinaryTreeNode(key);
+		    return;
+		}
+		Queue<BinaryTreeNode> q=new LinkedList<>();
+		q.add(temp);
+		while(!q.isEmpty()){
+		    temp=q.peek();
+		    q.remove();
+		    if(temp.left==null){
+		        temp.left=new BinaryTreeNode(key);
+		        break;
+		        }else
+		            q.add(temp.left);
+		    if(temp.right==null){
+		        temp.right=new BinaryTreeNode(key);
+		        break;
+		        }else
+		            q.add(temp.right);
+		      }
     }
     
-    public static int countmax(int[] arr1,int i,int[] arr2,int j,HashMap<String,Integer> hm)
-    {
-        int c=0;
-        String key=i+"value"+j;
-        if(i==arr1.length ||j==arr2.length)
-        {
-            return 0;
-        }
-        if(hm.containsKey(key))
-        {
-            return hm.get(key);
-        }
-        if(arr1[i]==arr2[j])
-        {
-            c=1+countmax(arr1,i+1,arr2,j+1,hm);
-        }
-        else
-        {
-            c+=Math.max((countmax(arr1,i,arr2,j+1,hm)),(countmax(arr1,i+1,arr2,j,hm)));
-           
-        }
-        hm.put(key,c);
-        return c;
-    }
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		LonelyNodes ln=new LonelyNodes();
+		Solution sol= new Solution();
+		
+		String str[]=sc.nextLine().split(" ");
+		root=new BinaryTreeNode(Integer.parseInt(str[0]));
+		for(int i=1; i<str.length; i++)
+			ln.insert(root,Integer.parseInt(str[i]));
+		//ArrayList<Integer> result=sol.getPersonIDs(root);
+		//Collections.sort(result);
+		//System.out.println(result);
+	}
 }
+
+/*
+
 """
 
 
