@@ -1,0 +1,11 @@
+CREATE TABLE WorkCenters (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    capacity INT NOT NULL
+);
+
+insert into WorkCenters  (name, capacity) values ("Production", 100);
+insert into WorkCenters (name, capacity) values("Testing", 200);
+insert into WorkCenters (name, capacity) values("Sales", 50);
+
+select * from WorkCenters;

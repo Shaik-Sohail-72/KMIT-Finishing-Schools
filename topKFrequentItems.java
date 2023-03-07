@@ -53,4 +53,29 @@ class topKFrequentItems{
             System.out.println(arr1[ind--][0]+" ");
         }
     }
-}
+}/* 
+import java.util.*;
+class Test{
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        Map<Integer,Integer> m = new HashMap<>();
+        List<Integer> l = new ArrayList<>();
+        for(int i = 0;i<n;i++){
+            int k = sc.nextInt();
+            m.put(k,m.getOrDefault(k,0)+1);
+        }
+        int kk = sc.nextInt();
+        for(int i :m.keySet()){
+            l.add(i);
+        }
+        Collections.sort(l,(a,b)->{if(m.get(a)==m.get(b)){return b-a;}else{return m.get(b)-m.get(a);}});
+
+        List<Integer> res = new ArrayList<>();
+        for(int i=0;i<kk;i++){
+            res.add(l.get(i));
+        }
+        System.out.println(res.toString());
+
+    }
+}*/
