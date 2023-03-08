@@ -7,7 +7,6 @@ A subarray is a contiguous non-empty sequence of elements within an array.
 input:- number of integers and list of integers
 output:- Return the number of distinct bitwise ORs of all the non-empty subarrays.
 
-
 Example 1:
 
 Input: 1
