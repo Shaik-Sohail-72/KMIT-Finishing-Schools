@@ -18,7 +18,6 @@ Input: nums = [5,3,2]
 Output: 1
 Explanation: We can show that 1 is the smallest number that is not expressible.
  
-
 Constraints:
 
 1 <= nums.length <= 105
