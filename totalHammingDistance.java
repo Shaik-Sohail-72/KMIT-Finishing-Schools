@@ -5,7 +5,6 @@ Input
 Number of integers and List of integers
 output
 Return the sum of bit differences between all the pairs of the integers.
- 
 Example 1:
 
 Input:
