@@ -43,7 +43,6 @@ Sample Output-2:
 ----------------
 0
 */
-
 import java.util.*;
 class longestTree{
     public static void main(String args[]){
