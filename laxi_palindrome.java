@@ -63,3 +63,4 @@ class laxi_palindrome{
         System.out.println(cal(s));
     }
 }
+
