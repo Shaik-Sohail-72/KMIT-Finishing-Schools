@@ -19,7 +19,6 @@ Output Format:
 --------------
 Print a boolean value
 
-
 Sample Input-1:
 ---------------
 internationalization i12iz4n
