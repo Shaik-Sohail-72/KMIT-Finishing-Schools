@@ -4,7 +4,6 @@ numerical elements and a number (sum).
 The opponent has to find the closest pair of elements 
 to the given sum.
 -> pair consists of elements from each list
-
 Please help those brothers to develop a program, that takes 
 two sorted lists as input and return a pair as output.
 
