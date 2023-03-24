@@ -2,76 +2,33 @@ import pyautogui
 import time
 
 code_to_type = """
-class Solution {
-    public static int minJumps(int[] arr) {
-        int n = arr.length;
-        if (n <= 1) {
-            return 0;
+ public class Main {
+ public static void main(String[] args){
+         Scanner sc=new Scanner(System.in);
+         String s1=sc.next();
+         String s2=sc.next();
+         String s3=sc.next();
+         System.out.println(is_Interleave(s1,0,s2,0,s3,0,)
+     }
+    public boolean isInterleave(String s1, String s2, String s3) {
+        if (s3.length() != s1.length() + s2.length()) {
+            return false;
         }
-
-        Map<Integer, List<Integer>> graph = new HashMap<>();
-        for (int i = 0; i < n; i++) {
-            graph.computeIfAbsent(arr[i], v -> new LinkedList<>()).add(i);
-        }
-
-        HashSet<Integer> curs = new HashSet<>(); // store layers from start
-        curs.add(0);
-        Set<Integer> visited = new HashSet<>();
-        visited.add(0);
-        visited.add(n - 1);
-        int step = 0;
-
-        HashSet<Integer> other = new HashSet<>(); // store layers from end
-        other.add(n - 1);
-
-        // when current layer exists
-        while (!curs.isEmpty()) {
-            // search from the side with fewer nodes
-            if (curs.size() > other.size()) {
-                HashSet<Integer> tmp = curs;
-                curs = other;
-                other = tmp;
-            }
-
-            HashSet<Integer> nex = new HashSet<>();
-
-            // iterate the layer
-            for (int node : curs) {
-
-                // check same value
-                for (int child : graph.get(arr[node])) {
-                    if (other.contains(child)) {
-                        return step + 1;
-                    }
-                    if (!visited.contains(child)) {
-                        visited.add(child);
-                        nex.add(child);
-                    }
-                }
-
-                // clear the list to prevent redundant search
-                graph.get(arr[node]).clear();
-
-                // check neighbors
-                if (other.contains(node + 1) || other.contains(node - 1)) {
-                    return step + 1;
-                }
-
-                if (node + 1 < n && !visited.contains(node + 1)) {
-                    visited.add(node + 1);
-                    nex.add(node + 1);
-                }
-                if (node - 1 >= 0 && !visited.contains(node - 1)) {
-                    visited.add(node - 1);
-                    nex.add(node - 1);
+        boolean dp[][] = new boolean[s1.length() + 1][s2.length() + 1];
+        for (int i = 0; i <= s1.length(); i++) {
+            for (int j = 0; j <= s2.length(); j++) {
+                if (i == 0 && j == 0) {
+                    dp[i][j] = true;
+                } else if (i == 0) {
+                    dp[i][j] = dp[i][j - 1] && s2.charAt(j - 1) == s3.charAt(i + j - 1);
+                } else if (j == 0) {
+                    dp[i][j] = dp[i - 1][j] && s1.charAt(i - 1) == s3.charAt(i + j - 1);
+                } else {
+                    dp[i][j] = (dp[i - 1][j] && s1.charAt(i - 1) == s3.charAt(i + j - 1)) || (dp[i][j - 1] && s2.charAt(j - 1) == s3.charAt(i + j - 1));
                 }
             }
-
-            curs = nex;
-            step++;
         }
-
-        return -1;
+        return dp[s1.length()][s2.length()];
     }
 }
 

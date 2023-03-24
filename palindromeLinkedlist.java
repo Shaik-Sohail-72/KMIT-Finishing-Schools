@@ -50,14 +50,11 @@ class Node{
 }    
 */
 
-class palindromeLinkedlist
-{
+class palindromeLinkedlist{
     List<Integer> ls=new ArrayList<>();
-    boolean isPalindrome(Node head) 
-    {
+    boolean isPalindrome(Node head) {
         Node curr=head;
-        while(curr!=null)
-        {
+        while(curr!=null){
             ls.add(curr.data);
             curr=curr.next;
         }
