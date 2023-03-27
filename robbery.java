@@ -36,17 +36,14 @@ class Main{
         System.out.println(cal(n,arr));
     }
     public static int cal(int n,int arr[]){
-        int i=0;
-        int j=1;
         int s1=0;
         int s2=0;
-        while(i<n){
-            s1+=arr[i];
-            i+=2;
-        }
-        while(j<n){
-            s2+=arr[j];
-            j+=2;
+        for(int i=0;i<n;i++){
+            if(i%2==0){
+                s1+=arr[i];
+            }else{
+                s2+=arr[i];
+            }
         }
         return Math.max(s1,s2);
     }
