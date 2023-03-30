@@ -3,38 +3,72 @@ import time
 
 code_to_type = """
 import java.util.*;
-class combination{
-    public static void main(String[] args){
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        ArrayList<Integer> ls=new ArrayList<>();
-        for(int i=0;i<n;i++){
-            int ele=sc.nextInt();
-            ls.add(ele);
+class TreapNode
+{
+    int data;
+    int priority;
+    TreapNode left;
+    TreapNode right;
+    TreapNode(int data)
+    {
+        this.data = data;
+        this.priority = new Random().nextInt(1000);
+        this.left = this.right = null;
+    }
+}
+class KthLargest{
+    static int k;
+    public static TreapNode rotateLeft(TreapNode root)
+    {
+        TreapNode R = root.right;
+        TreapNode X = root.right.left;
+        R.left = root;
+        root.right = X;
+        return R;
+    }
+    public static TreapNode rotateRight(TreapNode root)
+    {
+        TreapNode L = root.left;
+        TreapNode Y = root.left.right;
+        L.right = root;
+        root.left = Y;
+        return L;
+    }
+    public static TreapNode insertNode(TreapNode root, int data){
+        // If the tree is empty,
+        // return a new node
+        if (root == null) {
+            root = new TreapNode(data);
+            return root;
         }
-        int k=sc.nextInt();
-        System.out.println(combinationSum(ls,k));
+
+        // Otherwise, recur down the tree
+        else if (data < root.data)
+            root.left = insertNode(root.left, data);
+        else if (data > root.data)
+            root.right = insertNode(root.right, data);
+
+        // Return the (unchanged) node pointer
+        return root;
     }
-    public static ArrayList<ArrayList<Integer>> combinationSum(ArrayList<Integer> A, int B){   
-        ArrayList<ArrayList<Integer>> ans =  new ArrayList<>();
-        ArrayList<Integer> op = new ArrayList<>();
-        Set<Integer> set = new HashSet<>(A);
-        A.clear();
-        A.addAll(set);
-        Collections.sort(A);
-        int n = A.size();
-        int sum = 0;
-        int i = 0;
-        combination(A, i, n, sum, B, op, ans);
-        return ans; 
+    static void inorder(TreapNode root)
+    {
+        System.out.println(root.data);
     }
-    public static void combination(ArrayList<Integer> A, int i, int n, int sum, int target, ArrayList<Integer> op, ArrayList<ArrayList<Integer>> ans) {
-        if(sum == target) ans.add(op);
-        if(i == n || sum >= target) return;
-        ArrayList<Integer> temp = new ArrayList<>(op);
-        temp.add(A.get(i));
-        combination(A, i, n, sum + A.get(i), target, temp, ans);
-        combination(A, i + 1, n, sum, target, op, ans);
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int p = sc.nextInt();
+        k=n-p+1;
+        int arr[] = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        TreapNode root = null;
+        for(int a:arr){
+            root = insertNode(root,a);
+        }
+        inorder(root);
     }
 }
 
