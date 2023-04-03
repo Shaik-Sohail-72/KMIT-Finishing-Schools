@@ -1,29 +1,40 @@
-
 import java.util.*;
 class Main{
-    public static int JumpCost(int a[],int n){
-        int[] dp=new int[n];
-        Arrays.fill(dp, Integer.MAX_VALUE);
-        dp[0]=0;
-        for(int i=1;i<n;i++){
-            if(i==1){
-                dp[i]=Math.abs(a[i]-a[i-1]);
-            } 
-            else{
-                dp[i]=Math.min(dp[i-1] + Math.abs(a[i] - a[i-1]),dp[i-2]+Math.abs(a[i]-a[i-2]));
-            }
-        }
-        return dp[n-1];
-    }
-    public static void main(String args[]){
+    public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
-        int a[]=new int[n];
+        int arr[]=new int[n];
         for(int i=0;i<n;i++){
-            a[i]=sc.nextInt();
+            arr[i]=sc.nextInt();
         }
-        System.out.println(JumpCost(a,n));
+        System.out.println(cal(arr,n));
+    }
+    /*public static int cal(int arr[],int n){
+        int m=0;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                m=Math.max(m,Math.min(arr[i],arr[j])*(j-i));
+            }
+        }
+        return m;
+    }*/
+    public static int cal(int arr[],int n){
+        int i=0;
+        int j=n-1;
+        int max=0;
+        while(i<=j){
+            int minh=Math.min(arr[i],arr[j]);
+            int dis=j-i;
+            int m=minh*dis;
+            if(m>max){
+                max=m;
+            }
+            if(arr[i]<arr[j]){
+                i++;
+            }else{
+                j--;
+            }
+        }
+        return max;
     }
 }
-
-  

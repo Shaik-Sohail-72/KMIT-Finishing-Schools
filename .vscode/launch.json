@@ -1,0 +1,539 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "temp1",
+            "request": "launch",
+            "mainClass": "temp1",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "DestroyedRoads",
+            "request": "launch",
+            "mainClass": "DestroyedRoads",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "KthLargest",
+            "request": "launch",
+            "mainClass": "KthLargest",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "LonelyNodes",
+            "request": "launch",
+            "mainClass": "LonelyNodes",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "addToArray",
+            "request": "launch",
+            "mainClass": "addToArray",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "bankapp",
+            "request": "launch",
+            "mainClass": "bankapp",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "binaryGap",
+            "request": "launch",
+            "mainClass": "binaryGap",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "bitwiseSorting",
+            "request": "launch",
+            "mainClass": "bitwiseSorting",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "bitwoseOr",
+            "request": "launch",
+            "mainClass": "bitwoseOr",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "cartoon",
+            "request": "launch",
+            "mainClass": "cartoon",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "checkArithmetic",
+            "request": "launch",
+            "mainClass": "checkArithmetic",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "cloestPair",
+            "request": "launch",
+            "mainClass": "cloestPair",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "colorCodes",
+            "request": "launch",
+            "mainClass": "colorCodes",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "combinationSum",
+            "request": "launch",
+            "mainClass": "combinationSum",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "combinationSum4",
+            "request": "launch",
+            "mainClass": "combinationSum4",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "command_line",
+            "request": "launch",
+            "mainClass": "command_line",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "constructor_t",
+            "request": "launch",
+            "mainClass": "constructor_t",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "countBulbs",
+            "request": "launch",
+            "mainClass": "countBulbs",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "diamond",
+            "request": "launch",
+            "mainClass": "diamond",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "divide",
+            "request": "launch",
+            "mainClass": "divide",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "duplicateWindow",
+            "request": "launch",
+            "mainClass": "duplicateWindow",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "encodeNumber",
+            "request": "launch",
+            "mainClass": "encodeNumber",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "encoder",
+            "request": "launch",
+            "mainClass": "encoder",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "encoder_2",
+            "request": "launch",
+            "mainClass": "encoder_2",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "fighter",
+            "request": "launch",
+            "mainClass": "fighter",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "findDetective",
+            "request": "launch",
+            "mainClass": "findDetective",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "fruits",
+            "request": "launch",
+            "mainClass": "fruits",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "iceCreams",
+            "request": "launch",
+            "mainClass": "iceCreams",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "impossibleOr",
+            "request": "launch",
+            "mainClass": "impossibleOr",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "keypad",
+            "request": "launch",
+            "mainClass": "keypad",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "largestPossibleValue",
+            "request": "launch",
+            "mainClass": "largestPossibleValue",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "laxi",
+            "request": "launch",
+            "mainClass": "laxi",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "laxi_palindrome",
+            "request": "launch",
+            "mainClass": "laxi_palindrome",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "leastNoOfTokens",
+            "request": "launch",
+            "mainClass": "leastNoOfTokens",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "longestPalindrome",
+            "request": "launch",
+            "mainClass": "longestPalindrome",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "longestTree",
+            "request": "launch",
+            "mainClass": "longestTree",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "marsDogRover",
+            "request": "launch",
+            "mainClass": "marsDogRover",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "maxScore",
+            "request": "launch",
+            "mainClass": "maxScore",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "maxSumOfSubArray",
+            "request": "launch",
+            "mainClass": "maxSumOfSubArray",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "maxUncrossedLines",
+            "request": "launch",
+            "mainClass": "maxUncrossedLines",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "minFlips",
+            "request": "launch",
+            "mainClass": "minFlips",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "minNumberOfRefills",
+            "request": "launch",
+            "mainClass": "minNumberOfRefills",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "minOperations",
+            "request": "launch",
+            "mainClass": "minOperations",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "numsDecodings",
+            "request": "launch",
+            "mainClass": "numsDecodings",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "oddSum",
+            "request": "launch",
+            "mainClass": "oddSum",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "operators_t",
+            "request": "launch",
+            "mainClass": "operators_t",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "p1",
+            "request": "launch",
+            "mainClass": "p1",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "palindromes",
+            "request": "launch",
+            "mainClass": "palindromes",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "partitonLabel",
+            "request": "launch",
+            "mainClass": "partitonLabel",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "photoFrame",
+            "request": "launch",
+            "mainClass": "photoFrame",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "pipes",
+            "request": "launch",
+            "mainClass": "pipes",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "primeSetBits",
+            "request": "launch",
+            "mainClass": "primeSetBits",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "producerConsumer",
+            "request": "launch",
+            "mainClass": "producerConsumer",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "reverseVowels",
+            "request": "launch",
+            "mainClass": "reverseVowels",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "rowsBuild",
+            "request": "launch",
+            "mainClass": "rowsBuild",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "smallestRange",
+            "request": "launch",
+            "mainClass": "smallestRange",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "squareBoxes",
+            "request": "launch",
+            "mainClass": "squareBoxes",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "ssl",
+            "request": "launch",
+            "mainClass": "ssl",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "stockMarket",
+            "request": "launch",
+            "mainClass": "stockMarket",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "substring",
+            "request": "launch",
+            "mainClass": "substring",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "switchGame",
+            "request": "launch",
+            "mainClass": "switchGame",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "temp",
+            "request": "launch",
+            "mainClass": "temp",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "tenthStudent",
+            "request": "launch",
+            "mainClass": "tenthStudent",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "test",
+            "request": "launch",
+            "mainClass": "test",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "topKFrequentItems",
+            "request": "launch",
+            "mainClass": "topKFrequentItems",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "totalHammingDistance",
+            "request": "launch",
+            "mainClass": "totalHammingDistance",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "travels",
+            "request": "launch",
+            "mainClass": "travels",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "uniqueNumber",
+            "request": "launch",
+            "mainClass": "uniqueNumber",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "uniqueRoutes",
+            "request": "launch",
+            "mainClass": "uniqueRoutes",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "uniqueSubstring",
+            "request": "launch",
+            "mainClass": "uniqueSubstring",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "validIp",
+            "request": "launch",
+            "mainClass": "validIp",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "validWord",
+            "request": "launch",
+            "mainClass": "validWord",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "waterDispenser",
+            "request": "launch",
+            "mainClass": "waterDispenser",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "wordTarget",
+            "request": "launch",
+            "mainClass": "wordTarget",
+            "projectName": "Finishing_Schools_df1613b0"
+        }
+    ]
+}
