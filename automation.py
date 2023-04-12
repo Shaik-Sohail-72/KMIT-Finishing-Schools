@@ -2,74 +2,154 @@ import pyautogui
 import time
 
 code_to_type = """
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Set;
-
-public class NumberSlidingPuzzle {
-
-    private static final int[][] DIRECTIONS = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
-
-    public static int slidingPuzzle(int[][] board) {
-        // Convert the 2D board to a 1D string representation
+class Solution {
+    public int slidingPuzzle(int[][] board) {
+        // List<String> ls = new ArrayList<>();
+        Set<String> set = new HashSet<>();
+        Queue<int [][]> q = new LinkedList<>();
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
+        for(int i =0;i<2;i++){
+            for(int j=0;j<3;j++){
                 sb.append(board[i][j]);
             }
         }
-        String start = sb.toString();
-        String target = "123450"; // Required order
-
-        Set<String> visited = new HashSet<>();
-        Queue<String> queue = new LinkedList<>();
-        queue.offer(start);
-        visited.add(start);
-
-        int steps = 0;
-
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                String curr = queue.poll();
-                if (curr.equals(target)) {
-                    return steps;
-                }
-                int zeroIdx = curr.indexOf("0"); // Find the index of the empty square
-                int row = zeroIdx / 3; // Calculate the row of the empty square
-                int col = zeroIdx % 3; // Calculate the column of the empty square
-
-                for (int[] direction : DIRECTIONS) {
-                    int newRow = row + direction[0];
-                    int newCol = col + direction[1];
-                    if (newRow >= 0 && newRow < 3 && newCol >= 0 && newCol < 3) {
-                        // Swap the empty square with its neighboring tile
-                        StringBuilder newBoard = new StringBuilder(curr);
-                        int neighborIdx = newRow * 3 + newCol;
-                        char temp = newBoard.charAt(zeroIdx);
-                        newBoard.setCharAt(zeroIdx, newBoard.charAt(neighborIdx));
-                        newBoard.setCharAt(neighborIdx, temp);
-                        String newBoardStr = newBoard.toString();
-                        if (!visited.contains(newBoardStr)) {
-                            queue.offer(newBoardStr);
-                            visited.add(newBoardStr);
+        String result = "123450";
+        set.add(sb.toString());
+        q.add(board);
+        int steps=0;
+        while(!q.isEmpty()){
+            int size = q.size();
+            for(int k =0;k<size;k++){
+                int [][] arr =q.poll();
+                StringBuilder s = new StringBuilder();
+                int i1=0;
+                int j1=0;
+                for(int i =0;i<2;i++){
+                    for(int j=0;j<3;j++){
+                        s.append(arr[i][j]);
+                        if(arr[i][j]==0){
+                            i1=i;
+                            j1=j;
                         }
                     }
                 }
+                // System.out.println(q+" "+s.toString());
+                if(s.toString().equals(result)){
+                    return steps;
+                } 
+                else{
+                   
+                   
+
+                
+                // System.out.println(Arrays.deepToString(arr));
+                if(isValid(i1+1,j1)){
+                    StringBuilder s1 =new StringBuilder();
+                    int [][] temp = new int[2][3];
+                    for(int i =0;i<2;i++){
+                        for(int j =0;j<3;j++){
+                            temp[i][j]=arr[i][j];
+                        }
+                    }
+                    int t = temp[i1][j1];
+                    temp[i1][j1]=temp[i1+1][j1];
+                    temp[i1+1][j1]=t;
+                    for(int i =0;i<2;i++){
+                        for(int j =0;j<3;j++){
+                            s1.append(temp[i][j]);
+                        }
+                    }
+                        
+                    
+                    if(!set.contains(s1.toString())){
+                        set.add(s1.toString());
+                        q.add(temp);
+                    }
+                }
+                if(isValid(i1-1,j1)){
+                    StringBuilder s1 =new StringBuilder();
+                    int [][] temp = new int[2][3];
+                    for(int i =0;i<2;i++){
+                        for(int j =0;j<3;j++){
+                            temp[i][j]=arr[i][j];
+                        }
+                    }
+                    int t = temp[i1][j1];
+                    temp[i1][j1]=temp[i1-1][j1];
+                    temp[i1-1][j1]=t;
+                    for(int i =0;i<2;i++){
+                        for(int j =0;j<3;j++){
+                            s1.append(temp[i][j]);
+                        }
+                    }
+                        
+                    
+                    if(!set.contains(s1.toString())){
+                        set.add(s1.toString());
+                        q.add(temp);
+                    }
+                }
+                if(isValid(i1,j1+1)){
+                    StringBuilder s1 =new StringBuilder();
+                    int [][] temp = new int[2][3];
+                    for(int i =0;i<2;i++){
+                        for(int j =0;j<3;j++){
+                            temp[i][j]=arr[i][j];
+                        }
+                    }
+                    int t = temp[i1][j1];
+                    temp[i1][j1]=temp[i1][j1+1];
+                    temp[i1][j1+1]=t;
+                    for(int i =0;i<2;i++){
+                        for(int j =0;j<3;j++){
+                            s1.append(temp[i][j]);
+                        }
+                    }
+                        
+                    
+                    if(!set.contains(s1.toString())){
+                    set.add(s1.toString());
+                        q.add(temp);
+                    }
+                }
+                if(isValid(i1,j1-1)){
+                    StringBuilder s1 =new StringBuilder();
+                    int [][] temp = new int[2][3];
+                    for(int i =0;i<2;i++){
+                        for(int j =0;j<3;j++){
+                            temp[i][j]=arr[i][j];
+                        }
+                    }
+                    int t = temp[i1][j1];
+                    temp[i1][j1]=temp[i1][j1-1];
+                    temp[i1][j1-1]=t;
+                    for(int i =0;i<2;i++){
+                        for(int j =0;j<3;j++){
+                            s1.append(temp[i][j]);
+                        }
+                    }
+                        
+                    
+                    if(!set.contains(s1.toString())){
+                        set.add(s1.toString());
+                        q.add(temp);
+                    }
+                }
+                
+
+                
             }
-            steps++;
         }
-
-        return -1; // If the target order cannot be achieved
+        steps++;
     }
-
-    public static void main(String[] args) {
-        int[][] board1 = {{1, 2, 3}, {4, 5, 6}, {7, 0, 8}};
-        int[][] board2 = {{1, 2, 3}, {4, 5, 6}, {8, 7, 0}};
-        System.out.println(slidingPuzzle(board1)); // Output: 1
-        System.out.println(slidingPuzzle(board2)); // Output: -1
+    return -1;
+}
+public boolean isValid(int i , int j){
+    if((i>=0 && i<2) && (j>=0 && j<3)){
+        return true;
     }
+    return false;
+}
 }
 """
 
