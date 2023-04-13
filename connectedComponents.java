@@ -48,7 +48,7 @@ Sample Output-2:
 Note: Look HINT for explanation.
 */
 import java.util.*;
-class Main{
+class connectedComponents{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
         int V=sc.nextInt();
@@ -61,7 +61,7 @@ class Main{
             int src=sc.nextInt();
             int des=sc.nextInt();
             adjls.get(src).add(des);
-            adjls.get(des).add(src);
+            //adjls.get(des).add(src);
         }
         System.out.println(connectedcomp(V,adjls));
     }

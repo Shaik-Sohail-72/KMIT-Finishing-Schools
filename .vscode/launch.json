@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "connectedComponents",
+            "request": "launch",
+            "mainClass": "connectedComponents",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
             "name": "Solution",
             "request": "launch",
             "mainClass": "Solution",

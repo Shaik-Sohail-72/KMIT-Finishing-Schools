@@ -1,7 +1,40 @@
-import pyautogui
-import time
+/*Azim likes to play the number sliding puzzle game but it takes more number of steps for solving the puzzle.
+  help Azim to find the minimum number of steps in which he can finish the game.
+ given a 3x3 board and the tiles in it are numbered from 1-8 and an empty square represented by 0.
+ the game is completed when the numbers are arranged in Increasing order i.e
+  [[1,2,3]
+  [4,5,6]
+  [7,8,0]]
+  find the minimum number of ways to achive the required order by moving the tiles in 4 directions i.e
+  up,down,right,left.only one movement is possible at every move.
+ return -1 if it is not possible to achieve the order.
+  
+  Input:
+  Input for the jumbled matrix of size 3x3;
+  
+  Output:
+  Minimum number of steps to solve the board in Increasing order;
+  Example 1:
+  Input:
+  1 2 3
+  4 5 6
+  7 0 8
+  Output:
+  1
+  Explanation:
+  swap 0 and 8 in one move.
+ Example 2:
+  Input:
+  1 2 3
+  4 5 6
+  8 7 0
+  Output:
+  -1
+  
+  Explanation:
+  No number of moves will make solve the board .   
+*/
 
-code_to_type = """
 import java.util.*;
 public class Main {
     public static int solvePuzzle(int[][] board) {
@@ -77,13 +110,5 @@ public class Main {
         System.out.println(result);
     }
 }
-"""
 
-
-time.sleep(10)
-def avoid_auto_complete():
-    pyautogui.hotkey('esc', 'space', 'backspace', 'enter', 'space', 'ctrl', 'left')
-lines = list(code_to_type.split("\n"))
-for line in lines:
-        pyautogui.typewrite(line, interval=0)
-        avoid_auto_complete()
+  
