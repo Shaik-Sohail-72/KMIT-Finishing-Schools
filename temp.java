@@ -1,43 +1,59 @@
-import java.util.*;
-class temp{
-    public static void main(String[] args){
-        Scanner sc=new Scanner(System.in);
-        String txt=sc.nextLine();
-        String temp=sc.nextLine();
-        String arr[]=temp.split(" ");
-        //String arr[]={"colleges","kmec","ngit"};
-        //indexPairs("thekmecandngitcolleges",arr);
-        System.out.println(Arrays.toString(arr));
+class Solution{
+    static class Node{
+        Node children[];
+        boolean eow;
+        Node(){
+            children=new Node[26];
+            for(int i=0;i<26;i++){
+                children[i]=null;
+            }
+            eow=false;
+        }
+        
     }
-    public static void indexPairs(String text, String[] words) {
-        List<int[]> indexPairsList = new ArrayList<int[]>();
-        for (String word : words) {
-            int wordLength = word.length();
-            int curIndex = 0;
-            while (curIndex >= 0) {
-                curIndex = text.indexOf(word, curIndex);
-                if (curIndex >= 0) {
-                    indexPairsList.add(new int[]{curIndex, curIndex + wordLength - 1});
-                    curIndex++;
-                }
+    static Node root=new Node();
+    public static void insert(String word){
+        Node curr=root;
+        for(int i=0;i<word.length();i++){
+            int idx=word.charAt(i)-'a';
+            if(curr.children[idx]==null){
+                curr.children[idx]=new Node();
+            }
+            if(i==word.length()-1){
+                curr.children[idx].eow=true;
+            }
+            curr=curr.children[idx];
+        }
+    }
+    public static boolean search(String key){
+        Node curr=root;
+        for(int i=0;i<key.length();i++){
+            int idx=key.charAt(i)-'a';
+            if(curr.children[idx]==null){
+                return false;
+            }
+            if(i==key.length()-1 && curr.children[idx].eow==false){
+                return false;
+            }
+            curr=curr.children[idx];
+        }
+        return true;
+    }
+    public static int wordBreak(String s, ArrayList<String> wordDict )
+    {
+        if(s.length()==0){
+            return 1;
+        }
+        for(int i=0;i<wordDict.size();i++){
+            insert(wordDict.get(i));
+        }
+        for(int i=1;i<=s.length();i++){
+            String firstPart=s.substring(0,i);
+            String secPart=s.substring(i,s.length());
+            if(search(firstPart)==true && wordBreak(secPart,wordDict)==1){
+                return 1;
             }
         }
-        Collections.sort(indexPairsList, new Comparator<int[]>() {
-            public int compare(int[] array1, int[] array2) {
-                if (array1[0] != array2[0])
-                    return array1[0] - array2[0];
-                else
-                    return array1[1] - array2[1];
-            }
-        });
-        int length = indexPairsList.size();
-        int[][] indexPairs = new int[length][2];
-        for (int i = 0; i < length; i++) {
-            int[] indexPair = indexPairsList.get(i);
-            System.out.print(indexPair[0]+" "+indexPair[1]);
-            System.out.println();
-        }
+        return 0;
     }
 }
-
-  

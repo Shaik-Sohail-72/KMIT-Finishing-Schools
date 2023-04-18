@@ -47,7 +47,9 @@ Sample Output-2:
  
 Note: Look HINT for explanation.
 */
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 class connectedComponents{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
@@ -78,8 +80,8 @@ class connectedComponents{
         boolean[] visited=new boolean[V];
         for(int i=0;i<V;i++){
             if(!visited[i]){
-                dfs(i,visited,adjls);
                 c++;
+                dfs(i,visited,adjls);
             }
         }
         return c;

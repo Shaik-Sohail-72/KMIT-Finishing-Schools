@@ -2,81 +2,55 @@ import pyautogui
 import time
 
 code_to_type = """
-import java.util.*;
-public class Main {
-    public static int solvePuzzle(int[][] board) {
-        int[] dx = {-1, 1, 0, 0};
-        int[] dy = {0, 0, -1, 1};
-        Queue<int[][]> queue = new LinkedList<>();
-        Set<String> visited = new HashSet<>();
-        int[][] target = {{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
-        int steps = 0;
-        queue.add(board);
-        visited.add(Arrays.deepToString(board));
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                int[][] curr = queue.poll();
-                if (Arrays.deepEquals(curr, target)) {
-                    return steps;
+public List<List<String>> suggestedProducts(String[] products, String searchWord) {
+        //sort words so they will be added in a sorted order to nodes 
+        Arrays.sort(products);
+        
+        Trie root = new Trie();
+        for (String prod : products) {
+            Trie n = root;
+            for (char ch : prod.toCharArray()) {
+                int i = ch - 'a';
+                if (n.next[i] == null) {
+                    n.next[i] = new Trie();
                 }
-                int[] zeroPos = findZero(curr);
-                for (int j = 0; j < 4; j++) {
-                    int nx = zeroPos[0] + dx[j];
-                    int ny = zeroPos[1] + dy[j];
-                    if (nx >= 0 && nx < 3 && ny >= 0 && ny < 3) {
-                        int[][] next = new int[3][3];
-                        copy(curr, next);
-                        swap(next, zeroPos, new int[]{nx, ny});
-                        String state = Arrays.deepToString(next);
-                        if (!visited.contains(state)) {
-                            visited.add(state);
-                            queue.add(next);
-                        }
-                    }
-                }
-            }
-            steps++;
-        }
-        return -1;
-    }
-    public static int[] findZero(int[][] board) {
-        int[] pos = new int[2];
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (board[i][j] == 0) {
-                    pos[0] = i;
-                    pos[1] = j;
-                    return pos;
-                }
+                n = n.next[i];
+                if (n.words.size() < 3)
+                    n.words.add(prod);
             }
         }
-        return pos;
-    }
-    public static void swap(int[][] board, int[] pos1, int[] pos2) {
-        int temp = board[pos1[0]][pos1[1]];
-        board[pos1[0]][pos1[1]] = board[pos2[0]][pos2[1]];
-        board[pos2[0]][pos2[1]] = temp;
-    }
-    public static void copy(int[][] src, int[][] dest) {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                dest[i][j] = src[i][j];
+        
+        List<List<String>> res = new ArrayList();
+        Trie n = root;
+		//start going over the search word char by char
+        for (int i = 0; i < searchWord.length(); i++) {
+            n = n.next[searchWord.charAt(i) - 'a'];
+			//if we met null - means no more matches possible, the result of result can be filled by empty lists
+            if (n == null) {
+                for (int j = i; j < searchWord.length(); j++)
+                    res.add(Collections.EMPTY_LIST);    
+                break;
             }
+            res.add(n.words);
+        }
+        return res;
+    }
+    //trie node
+    class Trie {
+        Trie[] next;
+        List<String> words;
+        Trie() {
+            words = new ArrayList();
+            next = new Trie[26];
         }
     }
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int[][] board = new int[3][3];
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                board[i][j] = sc.nextInt();
-            }
-        }
-        int result = solvePuzzle(board);
-        System.out.println(result);
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String words=sc.nextLine();
+        String ser=sc.next();
+        String arr[]=words.split(',');
+        SYstem.out.println(suggestedProducts(arr,ser));
     }
-}
 """
 
 

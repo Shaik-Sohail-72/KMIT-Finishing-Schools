@@ -1,99 +1,78 @@
-/*Mr.Uday is trying to develop a software which reads array of strings from user and gives the longest common prefix of those strings, if no common prefix then it will give empty string. help uday to develop program.
+/*Given a string s, return the number of distinct substrings of s.
 
+A substring of a string is obtained by deleting any number of characters (possibly zero) from the front of the string and any number (possibly zero) from the back of the string.
 
-input : array of strings seperated by ','
-output : longest common prefix.
+ 
+
 Example 1:
-Input: flower,flow,flight
-Output: fl
 
+Input: s = "aabbaba"
+Output: 21
+Explanation: The set of distinct strings is ["a","b","aa","bb","ab","ba","aab","abb","bba","aba","aabb","abba","bbab","baba","aabba","abbab","bbaba","aabbab","abbaba","aabbaba"]
 Example 2:
-Input:dog,racecar,car
-Output: 
-Explanation: There is no common prefix among the input strings.
 
-Note: USE TRIE DATASTRUCTURE
-      STRING SHOULD CONTAIN ONLY LOWER CASE ALPHABETS(a to z  only)
+Input: s = "abcdefg"
+Output: 28
+ 
 
-*/
+Constraints:
 
-import java.util.*;
-class TrieNode {
-    char val;
-    boolean isEnd;
-    TrieNode[] children;
-    
-    public TrieNode() {
-        this.children = new TrieNode[26];
-    }
-    
-    public TrieNode(char c) {
-        this();
-        this.val = c;
-    }
-}
+1 <= s.length <= 500
+s consists of lowercase English letters.
+ 
 
-class Trie {
-    private TrieNode root;
-    
-    public Trie() {
-        this.root = new TrieNode();
-    }
-    
-    public void insert(String word) {
-        TrieNode curr = this.root;
-        
-        for (char c : word.toCharArray()) {
-            if (curr.children[c - 'a'] == null) {
-                curr.children[c - 'a'] = new TrieNode(c);
+Follow up: Can you solve this problem in O(n) time complexity?*/
+
+// Approach
+// Find all suffix of string
+// create a trie from suffix
+// count nodes of the trie. 
+// :- total number of nodes = count of unique prefix
+
+class Main{
+    static class Node{
+        Node children[];
+        boolean eow;
+        Node(){
+            children=new Node[26];
+            for(int i=0;i<26;i++){
+                children[i]=null;
             }
-            
-            curr = curr.children[c - 'a'];
+            eow=false;
         }
-        
-        curr.isEnd = true;
     }
-    
-    public String longestCommonPrefix(String[] strs) {
-        //write your code here
-        if(strs.length == 0)
-            return "";
-        
-        Trie t = new Trie();
-        for (String s : strs)
-            t.insert(s);
-        
-        System.out.println(t.search(strs[0], strs.length));
-    
-    /*private int countChildren(TrieNode node) {
-        //write your code here
+    static Node root=new Node();
+    public static void insert(String word){
+        Node curr=root;
+        for(int i=0;i<word.length();i++){
+            int idx=word.charAt(i)-'a';
+            if(curr.children[idx]==null){
+                curr.children[idx]=new Node();
+            }
+            if(i==word.length()-1){
+                curr.children[idx].eow=true;
+            }
+            curr=curr.children[idx];
+        }
     }
-    
-    private int getFirstChildIndex(TrieNode node) {
-        //write your code here
-    }*/
-    public void search(String s, int N){
-        TrieNode node = root;
-        for (int i = 0; i < s.length(); i++){
-            char c = s.charAt(i);
-            
-            if(node.children[c-'a'] != null ){
-                node = node.children[c-'a'];
-            }else {
-                System.out.println(s.substring(0, i));
+    public static int countUnique(Node root){
+        int c=0;
+        if(root==null){
+            return 0;
+        }
+        Node curr=root;
+        for(int i=0;i<26;i++){
+            if(curr.children[i]!=null){
+                c+=countUnique(curr.children[i]);
             }
         }
-        System.out.println(s);
+        return c+1;
     }
-}
-
-class Main {
-
-	public static void main(String[] args)
-	{
-		Scanner sc=new Scanner(System.in);
-		String[] str = sc.nextLine().split(",");
-		System.out.println(new Main().longestCommonPrefix(str));
-	}
-
+    public static void main(String [] args){
+        String str="ababa";
+        for(int i=0;i<str.length();i++){
+            insert(str.substring(i));
+        }
+        System.out.println(countUnique(root));
+    }
 }
