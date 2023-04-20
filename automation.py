@@ -2,55 +2,83 @@ import pyautogui
 import time
 
 code_to_type = """
-public List<List<String>> suggestedProducts(String[] products, String searchWord) {
-        //sort words so they will be added in a sorted order to nodes 
-        Arrays.sort(products);
-        
-        Trie root = new Trie();
-        for (String prod : products) {
-            Trie n = root;
-            for (char ch : prod.toCharArray()) {
-                int i = ch - 'a';
-                if (n.next[i] == null) {
-                    n.next[i] = new Trie();
-                }
-                n = n.next[i];
-                if (n.words.size() < 3)
-                    n.words.add(prod);
+import java.util.*;
+class Test
+{
+static boolean bfs(int rGraph[][], int s,int t, int parent[],int V)
+{
+    boolean []visited = new boolean[V];
+    Queue <Integer> q = new LinkedList<>();
+    q.add(s);
+    visited[s] = true;
+    parent[s] = -1;
+    while (!q.isEmpty())
+    {
+        int u = q.peek();
+        q.remove();
+
+        for (int v = 0; v < V; v++)
+        {
+            if (visited[v] == false &&
+                rGraph[u][v] > 0)
+            {
+                q.add(v);
+                parent[v] = u;
+                visited[v] = true;
             }
         }
-        
-        List<List<String>> res = new ArrayList();
-        Trie n = root;
-		//start going over the search word char by char
-        for (int i = 0; i < searchWord.length(); i++) {
-            n = n.next[searchWord.charAt(i) - 'a'];
-			//if we met null - means no more matches possible, the result of result can be filled by empty lists
-            if (n == null) {
-                for (int j = i; j < searchWord.length(); j++)
-                    res.add(Collections.EMPTY_LIST);    
-                break;
-            }
-            res.add(n.words);
+    }
+    return (visited[t] == true);
+}
+static int findDisjointPaths(int graph[][], int s, int t,int V)
+{
+    int u, v;
+    int [][]rGraph = new int[V][V];
+    for (u = 0; u < V; u++)
+        for (v = 0; v < V; v++)
+            rGraph[u][v] = graph[u][v];
+
+    int []parent = new int[V];
+
+    int max_flow = 0; 
+    while (bfs(rGraph, s, t, parent,V))
+    {
+
+        int path_flow = Integer.MAX_VALUE;
+
+        for (v = t; v != s; v = parent[v])
+        {
+            u = parent[v];
+            path_flow = Math.min(path_flow, rGraph[u][v]);
         }
-        return res;
-    }
-    //trie node
-    class Trie {
-        Trie[] next;
-        List<String> words;
-        Trie() {
-            words = new ArrayList();
-            next = new Trie[26];
+        for (v = t; v != s; v = parent[v])
+        {
+            u = parent[v];
+            rGraph[u][v] -= path_flow;
+            rGraph[v][u] += path_flow;
         }
+        max_flow += path_flow;
     }
-    public static void main(String[] args){
-        Scanner sc=new Scanner(System.in);
-        String words=sc.nextLine();
-        String ser=sc.next();
-        String arr[]=words.split(',');
-        SYstem.out.println(suggestedProducts(arr,ser));
-    }
+    return max_flow;
+}
+public static void main(String[] args)
+{
+    Scanner obj=new Scanner(System.in);
+      int n=obj.nextInt();
+      int[][] arr=new int[n][n];
+      for(int i=0;i<n;i++)
+      {
+      for(int j=0;j<n;j++)
+      {
+      arr[i][j]=obj.nextInt();
+      }
+      }
+    int s = obj.nextInt();
+    int t = obj.nextInt();
+    System.out.println(findDisjointPaths(arr, s, t,n)); 
+}
+}
+   
 """
 
 

@@ -52,8 +52,10 @@ class mobileDictionary{
        }
        for(int i=0;i<26;i++){
            if(curr.children[i]!=null){
+            System.out.println(i+" prevs "+s);
             s=s+((char)(i+'a'));
-            System.out.println(s);
+            System.out.println((char)(i+'a'));
+            System.out.println("s "+s);
             find(curr.children[i],s,ls);
            }
        }
