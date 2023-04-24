@@ -2,81 +2,33 @@ import pyautogui
 import time
 
 code_to_type = """
-import java.util.*;
-class Test
-{
-static boolean bfs(int rGraph[][], int s,int t, int parent[],int V)
-{
-    boolean []visited = new boolean[V];
-    Queue <Integer> q = new LinkedList<>();
-    q.add(s);
-    visited[s] = true;
-    parent[s] = -1;
-    while (!q.isEmpty())
-    {
-        int u = q.peek();
-        q.remove();
-
-        for (int v = 0; v < V; v++)
-        {
-            if (visited[v] == false &&
-                rGraph[u][v] > 0)
-            {
-                q.add(v);
-                parent[v] = u;
-                visited[v] = true;
-            }
-        }
+public class Solution {
+    public boolean makesquare(int[] nums) {
+    	if (nums == null || nums.length < 4) return false;
+        int sum = 0;
+        for (int num : nums) sum += num;
+        if (sum % 4 != 0) return false;
+        
+    	return dfs(nums, new int[4], 0, sum / 4);
     }
-    return (visited[t] == true);
-}
-static int findDisjointPaths(int graph[][], int s, int t,int V)
-{
-    int u, v;
-    int [][]rGraph = new int[V][V];
-    for (u = 0; u < V; u++)
-        for (v = 0; v < V; v++)
-            rGraph[u][v] = graph[u][v];
-
-    int []parent = new int[V];
-
-    int max_flow = 0; 
-    while (bfs(rGraph, s, t, parent,V))
-    {
-
-        int path_flow = Integer.MAX_VALUE;
-
-        for (v = t; v != s; v = parent[v])
-        {
-            u = parent[v];
-            path_flow = Math.min(path_flow, rGraph[u][v]);
-        }
-        for (v = t; v != s; v = parent[v])
-        {
-            u = parent[v];
-            rGraph[u][v] -= path_flow;
-            rGraph[v][u] += path_flow;
-        }
-        max_flow += path_flow;
+    
+    private boolean dfs(int[] nums, int[] sums, int index, int target) {
+    	if (index == nums.length) {
+    	    if (sums[0] == target && sums[1] == target && sums[2] == target) {
+    		return true;
+    	    }
+    	    return false;
+    	}
+    	
+    	for (int i = 0; i < 4; i++) {
+    	    if (sums[i] + nums[index] > target) continue;
+    	    sums[i] += nums[index];
+            if (dfs(nums, sums, index + 1, target)) return true;
+    	    sums[i] -= nums[index];
+    	}
+    	
+    	return false;
     }
-    return max_flow;
-}
-public static void main(String[] args)
-{
-    Scanner obj=new Scanner(System.in);
-      int n=obj.nextInt();
-      int[][] arr=new int[n][n];
-      for(int i=0;i<n;i++)
-      {
-      for(int j=0;j<n;j++)
-      {
-      arr[i][j]=obj.nextInt();
-      }
-      }
-    int s = obj.nextInt();
-    int t = obj.nextInt();
-    System.out.println(findDisjointPaths(arr, s, t,n)); 
-}
 }
    
 """

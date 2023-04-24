@@ -63,8 +63,9 @@ class connectedComponents{
             int src=sc.nextInt();
             int des=sc.nextInt();
             adjls.get(src).add(des);
-            //adjls.get(des).add(src);
+            adjls.get(des).add(src);
         }
+        System.out.println(adjls);
         System.out.println(connectedcomp(V,adjls));
     }
     public static void dfs(int v,boolean visited[],List<List<Integer>> adjls){
