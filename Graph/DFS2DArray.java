@@ -1,5 +1,5 @@
 import java.util.*;
-class temp{
+class DFS2DArray{
 	static class Pair{
 		int i;
 		int j;

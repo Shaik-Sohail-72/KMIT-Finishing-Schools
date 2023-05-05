@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BFS2DArray",
+            "request": "launch",
+            "mainClass": "BFS2DArray",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
             "name": "mobileDictionary",
             "request": "launch",
             "mainClass": "mobileDictionary",
