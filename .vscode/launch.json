@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "arrayManipulation",
+            "request": "launch",
+            "mainClass": "arrayManipulation",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "city",
+            "request": "launch",
+            "mainClass": "city",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "robo",
+            "request": "launch",
+            "mainClass": "robo",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
             "name": "BFS2DArray",
             "request": "launch",
             "mainClass": "BFS2DArray",

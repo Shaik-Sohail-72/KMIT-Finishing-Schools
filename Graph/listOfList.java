@@ -10,7 +10,9 @@ Sample Input-1:
 3 5
 4 5
 */
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 class listOfList{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
@@ -18,21 +20,20 @@ class listOfList{
         int E=sc.nextInt();
         List<List<Integer>> mainls=new ArrayList<>();
         for(int i=0;i<V;i++){
-            List<Integer> ls=new ArrayList<>();  // Creating empty list
-            mainls.add(ls); // Adding empty lists in mainls. If V=7 then addding 7 empty lists. [[],[],[],[],[],[],[]]
+            List<Integer> ls=new ArrayList<>();  
+            mainls.add(ls); 
         }
-        System.out.println(mainls);  // Just debug print
         for(int i=0;i<E;i++){
-            int src=sc.nextInt();  // Reading source
-            int des=sc.nextInt();  // Reading destination
-            mainls.get(src).add(des);  // Get source index list from mainls and add destination in that list. 
-            mainls.get(des).add(src);  // Get destination index list from mainls and add source in that list because graph is undeirected.
+            int src=sc.nextInt();  
+            int des=sc.nextInt();  
+            mainls.get(src).add(des);  
+            mainls.get(des).add(src); 
         }
-        System.out.println(mainls);    // Just debug print
+        System.out.println(mainls);    
 
 
         // print 4's neighbour
-        for(int i: mainls.get(4)){  //get 4th index list from mainls and read each element and print it.
+        for(int i: mainls.get(4)){  
             System.out.print(i+" ");
         }
     }

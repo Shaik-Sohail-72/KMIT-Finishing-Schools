@@ -1,59 +1,29 @@
-class Solution{
-    static class Node{
-        Node children[];
-        boolean eow;
-        Node(){
-            children=new Node[26];
-            for(int i=0;i<26;i++){
-                children[i]=null;
-            }
-            eow=false;
-        }
-        
+import java.util.*;
+class temp{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.println(find(n));
     }
-    static Node root=new Node();
-    public static void insert(String word){
-        Node curr=root;
-        for(int i=0;i<word.length();i++){
-            int idx=word.charAt(i)-'a';
-            if(curr.children[idx]==null){
-                curr.children[idx]=new Node();
-            }
-            if(i==word.length()-1){
-                curr.children[idx].eow=true;
-            }
-            curr=curr.children[idx];
+    public static List<String> find(int n){
+        LinkedList<String> list=new LinkedList<>();
+        if(n<=0){
+            return list;
         }
+        dfs(n,0,"",list);
+        return list;
     }
-    public static boolean search(String key){
-        Node curr=root;
-        for(int i=0;i<key.length();i++){
-            int idx=key.charAt(i)-'a';
-            if(curr.children[idx]==null){
-                return false;
-            }
-            if(i==key.length()-1 && curr.children[idx].eow==false){
-                return false;
-            }
-            curr=curr.children[idx];
+    public static void dfs(int left,int right,String res,List<String> list){
+        if(left==0 && right==0){
+            list.add(res);
+            return;
         }
-        return true;
-    }
-    public static int wordBreak(String s, ArrayList<String> wordDict )
-    {
-        if(s.length()==0){
-            return 1;
+        if(left>0){
+            dfs(left-1,right+1,res+"(",list);
+            System.out.println(left-1);
         }
-        for(int i=0;i<wordDict.size();i++){
-            insert(wordDict.get(i));
+        if(right>0){
+            dfs(left,right-1,res+")",list);
         }
-        for(int i=1;i<=s.length();i++){
-            String firstPart=s.substring(0,i);
-            String secPart=s.substring(i,s.length());
-            if(search(firstPart)==true && wordBreak(secPart,wordDict)==1){
-                return 1;
-            }
-        }
-        return 0;
     }
 }
