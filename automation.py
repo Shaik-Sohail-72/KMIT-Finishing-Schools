@@ -2,36 +2,41 @@ import pyautogui
 import time
 
 code_to_type = """
-import java.util.*;
-class Test
-{
-    public static void main (String[] args) 
-    {
-        Scanner obj=new Scanner(System.in);
-        int n=obj.nextInt();
-        int k=obj.nextInt();
-        System.out.println(findSurvivor(n,k));
-    }
-    public static int findSurvivor(int n,int k)
-    {
-        if(n==1)
-        {
-            return 1;
-        }
-        ArrayList<Integer> list=new ArrayList<>();
-        for(int i=1;i<=n;i++)
-        {
-            list.add(i);
-        }
-        int ind=0;
-        while(list.size()>1)
-        {
-            ind=(ind+k-1)%(list.size());
-            list.remove(ind);
-        }
-        return list.get(0);
-    }
-}
+Solution in Java
+
+ 
+
+ArrayList<Integer> rotation(int n){
+       // Code Here
+       ArrayList<Integer> res = new ArrayList<Integer>();
+       int[] arr = new int[1001];
+       Queue<Integer> q = new LinkedList<>();
+       for(int i=1; i<=n; i++){
+           q.add(i);
+       }
+       int i=1;
+       while(!q.isEmpty()){
+           int j=0;
+           while(j<i){
+               int x = q.peek();
+               q.poll();
+               q.add(x);
+               j++;
+           }
+           int x = q.peek();
+           if(arr[x] != 0){
+               res.add(-1);
+               return res;
+           }
+           arr[x] = i;
+           q.poll();
+           i++;
+       }
+       for(i=1; i<=n; i++)
+           res.add(arr[i]);
+       return res;
+   }
+
 
 
    
