@@ -80,13 +80,12 @@ class cartoon
         for(int i=0;i<n;i++){
             arr[i]=sc.nextInt();
         }
-        Set<Integer> st=new HashSet<>();
         for(int i=0;i<(arr.length-k)+1;i++){
+            Set<Integer> st=new HashSet<>();
             for(int j=i;j<i+k;j++){
                 st.add(arr[j]);
             }
             System.out.print(st.size()+" ");
-            st.clear();
         }
     }
 }

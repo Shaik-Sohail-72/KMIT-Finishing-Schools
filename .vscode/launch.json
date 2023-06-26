@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "topologicalSort",
+            "request": "launch",
+            "mainClass": "topologicalSort",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "per",
+            "request": "launch",
+            "mainClass": "per",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "BraneCoding",
+            "request": "launch",
+            "mainClass": "BraneCoding",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "Brane",
+            "request": "launch",
+            "mainClass": "Brane",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
             "name": "arrayManipulation",
             "request": "launch",
             "mainClass": "arrayManipulation",

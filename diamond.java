@@ -51,9 +51,9 @@ class diamond{
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
         int d=sc.nextInt();
-        int i=n;
+        int i=n-1;
         int c=0;
-        while(i!=0){
+        while(i>=0){
             if(i%2==0 && d!=0){
                 i=i-(i/2);
                 d--;

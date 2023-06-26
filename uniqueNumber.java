@@ -16,18 +16,15 @@ class uniqueNumber{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
-        Set<Character> s=new HashSet<>();
         for(int i=1;i<=n;i++){
             String temp=Integer.toString(i);
+            Set<Character> s=new HashSet<>();
             for(int j=0;j<temp.length();j++){
                 s.add(temp.charAt(j));
             }
             if(temp.length()==s.size()){
                 System.out.print(temp+" ");
-                s.clear();
             }
-            s.clear();
-        
         }
         
     }

@@ -58,7 +58,7 @@ class wordTarget{
         Stack<Character> st=new Stack<>();
         for(int i=0;i<s.length();i++){
             st.push(s.charAt(i));
-            if(s.charAt(i)=='r'){
+            if(st.peek()=='r'){
                 st.pop();
                 if(st.peek()=='q'){
                     st.pop();
