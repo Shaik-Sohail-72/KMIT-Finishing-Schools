@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DLL",
+            "request": "launch",
+            "mainClass": "DLL",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "DoublyLinkedList",
+            "request": "launch",
+            "mainClass": "DoublyLinkedList",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "midElementOfLinkedlist",
+            "request": "launch",
+            "mainClass": "midElementOfLinkedlist",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
             "name": "topologicalSort",
             "request": "launch",
             "mainClass": "topologicalSort",
