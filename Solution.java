@@ -1,54 +1,41 @@
-import java.util.*;
-class TrieNode{
-    TrieNode children[];
-    int freq;
-    TrieNode(){
-        children=new TrieNode[26];
-        for(int i=0;i<26;i++){
-            children[i]=null;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+class Solution
+{
+    //Function to find the smallest window in the string s consisting
+    //of all the characters of string p.
+    public static void main(String[] args) {
+        System.out.println(findSubString("CCCbAbbBbbC"));
+    }
+    public static int findSubString( String str) {
+        int n=str.length();
+        Set<Character> mainst=new HashSet<>();
+        for(int i=0;i<str.length();i++){
+            mainst.add(str.charAt(i));
         }
-        freq=0;
+        System.out.println(mainst);
+        int k=mainst.size();
+        while(k<=n){
+            for(int i=0;i<n-k+1;i++){
+                List<Character> ls=new ArrayList<>();
+                ls.addAll(mainst);
+                String tempstr="";
+                int c=0;
+                for(int j=i;j<i+k;j++){
+                    tempstr+=str.charAt(j);
+                    if(ls.contains(str.charAt(j))){
+                        c++;
+                        //ls.remove(Character.valueOf(str.charAt(j)));
+                    }
+                }
+                if(c>=mainst.size()){
+                    return tempstr.length();
+                }
+            }
+            k++;
+        }
+        return -1;
     }
 }
-public class Solution {
-    
-    static TrieNode root=new TrieNode();
-    static String findPrefixes(String[] arr, int N) {
-        String res[]=new String[N];
-        for(int i=0;i<N;i++){
-            insert(arr[i],root);
-        }
-        for(int i=0;i<N;i++){
-            res[i]=find(arr[i],root);
-        }
-        return Arrays.toString(res);
-    }
-    static void insert(String word,TrieNode root){
-        TrieNode curr=root;
-        for(int i=0;i<word.length();i++){
-            int idx=word.charAt(i)-'a';
-            if(curr.children[idx]==null){
-                curr.children[idx]=new TrieNode();
-            }
-            curr.children[idx].freq+=1;
-            curr=curr.children[idx];
-        }
-    }
-    static String find(String key,TrieNode root){
-        TrieNode curr=root;
-        String ans="";
-        for(int i=0;i<key.length();i++){
-            int idx=key.charAt(i)-'a';
-            ans+=key.charAt(i);
-            if(curr.children[idx].freq==1){
-                break;
-            }
-            curr=curr.children[idx];
-        }
-        return ans;
-    }
-    public static void main(String[] args){
-        String arr[]={"zebra", "dog", "duck", "dove"};
-        System.out.println(findPrefixes(arr,4 ));
-    }
-};

@@ -1,5 +1,13 @@
-import java.util.Scanner;
+/*Given a sorted doubly linked list of positive distinct elements, the task is to find pairs in a doubly-linked list whose sum is equal to given value x, without using any extra space? 
 
+Example:  
+
+Input : head : 1 <-> 2 <-> 4 <-> 5 <-> 6 <-> 8 <-> 9
+        x = 7
+Output: (1, 6), (2, 5)
+The expected time complexity is O(n) and auxiliary space is O(1).*/
+
+import java.util.Scanner;
 class Node {
     int data;
     Node next;
@@ -11,8 +19,7 @@ class Node {
         prev = null;
     }
 }
-
-class DLL {
+class DLL_pair_sum {
     static Node hptr = null;
     static Node tptr = null;
 
@@ -32,7 +39,7 @@ class DLL {
         }
     }
 
-    public static void display(Node hptr, Node tptr) {
+    public static void forwardDisplay(Node hptr) {
         Node temp = hptr;
         while (temp != null) {
             System.out.print(temp.data + " ");
@@ -41,15 +48,14 @@ class DLL {
         System.out.println();
     }
 
-    public static void twoSum(Node hptr, int x) {
+    public static void findPairs(Node hptr, int x) {
         Node left = hptr;
         Node right = tptr;
-
-        while (left != right && right.next != left) {
+        while (left.data<right.data) {
             int sum = left.data + right.data;
 
             if (sum == x) {
-                System.out.println("(" + right.data + ", " + left.data + ")");
+                System.out.println("(" + left.data + ", " + right.data + ")");
                 left = left.next;
                 right = right.prev;
             } else if (sum < x) {
@@ -70,13 +76,15 @@ class DLL {
             append(ele);
         }
 
-        System.out.println("Enter the value of x");
-        int x = sc.nextInt();
+        System.out.println("Enter the value of X for pair sum");
+        int x1 = sc.nextInt();
 
-        System.out.println("Doubly linked list: ");
-        display(hptr, tptr);
 
-        System.out.println("Pairs with sum equal to " + x + ":");
-        twoSum(hptr, x);
+        System.out.println("Doubly linked list in forward direction: ");
+        forwardDisplay(hptr);
+
+
+        System.out.println("Pairs with sum equal to " + x1 + ":");
+        findPairs(hptr, x1);
     }
 }

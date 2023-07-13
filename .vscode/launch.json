@@ -6,6 +6,146 @@
     "configurations": [
         {
             "type": "java",
+            "name": "numTilePossibilities",
+            "request": "launch",
+            "mainClass": "numTilePossibilities",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "getMaximum",
+            "request": "launch",
+            "mainClass": "getMaximum",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "shooting",
+            "request": "launch",
+            "mainClass": "shooting",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "burstBaloon",
+            "request": "launch",
+            "mainClass": "burstBaloon",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "product",
+            "request": "launch",
+            "mainClass": "product",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "RPN",
+            "request": "launch",
+            "mainClass": "RPN",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "maxPoints",
+            "request": "launch",
+            "mainClass": "maxPoints",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "b",
+            "request": "launch",
+            "mainClass": "b",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "validShuffle",
+            "request": "launch",
+            "mainClass": "validShuffle",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "minOperation",
+            "request": "launch",
+            "mainClass": "minOperation",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "mergeIntervals",
+            "request": "launch",
+            "mainClass": "mergeIntervals",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "boardGame",
+            "request": "launch",
+            "mainClass": "boardGame",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "strBuild",
+            "request": "launch",
+            "mainClass": "strBuild",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "shootingArrows",
+            "request": "launch",
+            "mainClass": "shootingArrows",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "SSL_moveLastNode",
+            "request": "launch",
+            "mainClass": "SSL_moveLastNode",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "DLL_reverse_ksize",
+            "request": "launch",
+            "mainClass": "DLL_reverse_ksize",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "DLL_triplets",
+            "request": "launch",
+            "mainClass": "DLL_triplets",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "DLL_pair_sum",
+            "request": "launch",
+            "mainClass": "DLL_pair_sum",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "DLL_forward_backward",
+            "request": "launch",
+            "mainClass": "DLL_forward_backward",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "DLL_forward_reverse",
+            "request": "launch",
+            "mainClass": "DLL_forward_reverse",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
             "name": "DLL",
             "request": "launch",
             "mainClass": "DLL",
