@@ -1,32 +1,48 @@
-import java.util.HashSet;
-import java.util.Set;
-
-class b {
-    public static void main(String[] args){
-        String s="AABBBCBBAC";
-        findSubString(s);
-    }
-    public static void findSubString( String str) {
-        int n=str.length();
-        Set<Character> st=new HashSet<>();
-        for(int i=0;i<n;i++){
-            st.add(str.charAt(i));
-        }
-        //System.out.println(st);
-        int k=st.size();
-        for(int i=0;i<n-k+1;i++){
-            String temp="";
-            int c=0;
-            for(int j=i;j<i+k;j++){
-                temp+=str.charAt(j);
-                if(st.contains(str.charAt(i))){
-                    c++;
+public int find(int arr[][],boolean vis[][],int i,int j,int c){
+        int c=0;
+        Queue<Pair> q=new LinkedList<>();
+        q.add(new Pair(0,0));
+        while(!q.isEmpty()){
+            Pair curr=q.remove();
+            int i=curr.i;
+            int j=curr.j;
+            if(isval(arr,i-2,j+1) && arr[i-2][j+1]==1){
+                q.add(new Pair(i-2,j+1,cn+1));
+                c+=1;
+            }
+            if(isval(arr,i-2,j+1) && arr[i-2][j+1]==1){
+                q.add(new Pair(i-2,j+1,cn+1));
+                c+=1;
+            }
+            if(isval(arr,i-2,j+1) && arr[i-2][j+1]==1){
+                q.add(new Pair(i-2,j+1,cn+1));
+                c+=1;
+            }
+            if(isval(arr,i-2,j+1) && arr[i-2][j+1]==1){
+                q.add(new Pair(i-2,j+1,cn+1));
+                c+=1;
+            }
+                if(is(N,)){
+                    q.add(new Pair(i-1,j+2,cn+1));
+                }
+                if(is(N,i+1,j+2)){
+                    q.add(new Pair(i+1,j+2,cn+1));
+                }
+                if(is(N,i+2,j+1)){
+                    q.add(new Pair(i+2,j+1,cn+1));
+                }
+                if(is(N,i+2,j-1)){
+                    q.add(new Pair(i+2,j-1,cn+1));
+                }
+                if(is(N,i+1,j-2)){
+                    q.add(new Pair(i+1,j-2,cn+1));
+                }
+                if(is(N,i-1,j-2)){
+                    q.add(new Pair(i-1,j-2,cn+1));
+                }
+                if(is(N,i-2,j-1)){
+                    q.add(new Pair(i-2,j-1,cn+1));
                 }
             }
-            if(c>=st.size()){
-                System.out.println(temp);
-            }
-            
         }
-    }
-}
+        return -1;

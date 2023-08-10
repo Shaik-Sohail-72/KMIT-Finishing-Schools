@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AverageOfLevels",
+            "request": "launch",
+            "mainClass": "AverageOfLevels",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "mergeSort",
+            "request": "launch",
+            "mainClass": "mergeSort",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "bubbleSort",
+            "request": "launch",
+            "mainClass": "bubbleSort",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
             "name": "numTilePossibilities",
             "request": "launch",
             "mainClass": "numTilePossibilities",
