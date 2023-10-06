@@ -97,15 +97,19 @@ class ComprehensivePolicy extends InsurancePolicy {
     }
 }
 
-public class Main {
+// Test code
+public class MainCar {
     public static void main(String[] args) {
         final double flatRate = 1000.0; // Example flat rate
 
         Car car1 = new Car("Honda Civic", CarType.SEDAN, 2020, 20000.0);
-        Car car2 = new Car("BMW X5", CarType.SUV, 2019, 60000.0);
 
         ThirdPartyPolicy thirdPartyPolicy = new ThirdPartyPolicy("John Doe", 1, car1, 2, "Basic coverage");
+
+
         thirdPartyPolicy.print();
-    
-	}
+
+
+  
+    }
 }

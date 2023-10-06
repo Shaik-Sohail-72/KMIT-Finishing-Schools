@@ -6,6 +6,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ComprehensivePolicy",
+            "request": "launch",
+            "mainClass": "ComprehensivePolicy",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "oracle1",
+            "request": "launch",
+            "mainClass": "oracle1",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "Oracle",
+            "request": "launch",
+            "mainClass": "Oracle",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "oracle",
+            "request": "launch",
+            "mainClass": "oracle",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "experian1",
+            "request": "launch",
+            "mainClass": "experian1",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
+            "name": "exp1",
+            "request": "launch",
+            "mainClass": "exp1",
+            "projectName": "Finishing_Schools_df1613b0"
+        },
+        {
+            "type": "java",
             "name": "AverageOfLevels",
             "request": "launch",
             "mainClass": "AverageOfLevels",

@@ -1,7 +1,9 @@
+// CarType enum
 enum CarType {
     SUV, SEDAN, LUXURY, HATCHBACK, OTHER
 }
 
+// Car class
 class Car {
     String model;
     CarType type;
@@ -16,6 +18,7 @@ class Car {
     }
 }
 
+// InsurancePolicy abstract base class
 abstract class InsurancePolicy {
     String policyHolderName;
     int id;
@@ -39,6 +42,7 @@ abstract class InsurancePolicy {
     }
 }
 
+// ThirdPartyPolicy class
 class ThirdPartyPolicy extends InsurancePolicy {
     String comments;
 
@@ -65,6 +69,7 @@ class ThirdPartyPolicy extends InsurancePolicy {
     }
 }
 
+// ComprehensivePolicy class
 class ComprehensivePolicy extends InsurancePolicy {
     int driverAge;
     int level;
@@ -97,6 +102,7 @@ class ComprehensivePolicy extends InsurancePolicy {
     }
 }
 
+// Test code
 public class Main {
     public static void main(String[] args) {
         final double flatRate = 1000.0; // Example flat rate
@@ -105,7 +111,28 @@ public class Main {
         Car car2 = new Car("BMW X5", CarType.SUV, 2019, 60000.0);
 
         ThirdPartyPolicy thirdPartyPolicy = new ThirdPartyPolicy("John Doe", 1, car1, 2, "Basic coverage");
+        ComprehensivePolicy comprehensivePolicy = new ComprehensivePolicy("Jane Smith", 2, car2, 1, 25, 3);
+
         thirdPartyPolicy.print();
-    
-	}
+        thirdPartyPolicy.calcPayment(flatRate);
+
+        System.out.println();
+
+        comprehensivePolicy.print();
+        comprehensivePolicy.calcPayment(flatRate);
+
+        InsurancePolicy[] policies = {thirdPartyPolicy, comprehensivePolicy};
+
+        double totalPremium = 0.0;
+        for (InsurancePolicy policy : policies) {
+            totalPremium += policy.car.price / 50 + policy.numberOfClaims * 200 + flatRate;
+            if (policy instanceof ComprehensivePolicy) {
+                if (((ComprehensivePolicy) policy).driverAge < 30) {
+                    totalPremium += (30 - ((ComprehensivePolicy) policy).driverAge) * 50;
+                }
+            }
+        }
+
+        System.out.println("\nTotal Premium Payment: " + totalPremium);
+    }
 }
